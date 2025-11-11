@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCraft 3D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            background: #87CEEB;
+        }
+        #info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 100;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        #crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        #crosshair::before,
+        #crosshair::after {
+            content: '';
+            position: absolute;
+            background: white;
+            box-shadow: 0 0 2px black;
+        }
+        #crosshair::before {
+            width: 2px;
+            height: 20px;
+            left: 9px;
+        }
+        #crosshair::after {
+            width: 20px;
+            height: 2px;
+            top: 9px;
+        }
+        #blockSelector {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .blockOption {
+            width: 50px;
+            height: 50px;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .blockOption.active {
+            border-color: white;
+            transform: scale(1.1);
+        }
+        .blockOption:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <strong>MindCraft 3D</strong><br>
+        WASD - Move<br>
+        Space - Jump<br>
+        Mouse - Look<br>
+        Click - Break Block<br>
+        Right Click - Place Block<br>
+        1-6 - Select Block Type
+    </div>
+    <div id="crosshair"></div>
+    <div id="blockSelector"></div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
